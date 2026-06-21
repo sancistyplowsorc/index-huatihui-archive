@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 信息索引与整理笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f5f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+      color: #2e2e2e;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* 开场短句 —— 柔和留白 */
+    .opening {
+      background: transparent;
+      padding: 2.2rem 0 0.4rem 0;
+      border-bottom: 1px solid #d9d6ce;
+      margin-bottom: 2rem;
+    }
+
+    .opening p {
+      font-size: 1.4rem;
+      font-weight: 320;
+      letter-spacing: 0.04em;
+      color: #3d3a35;
+      max-width: 70%;
+    }
+
+    @media (max-width: 600px) {
+      .opening p {
+        max-width: 100%;
+        font-size: 1.2rem;
+      }
+    }
+
+    /* 承接段落卡片 */
+    .intro-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6e3da;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .intro-card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .intro-card p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-card .inline-link {
+      color: #6b5b4c;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid #cfc8bc;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .intro-card .inline-link:hover {
+      color: #3d3028;
+      border-bottom-color: #7a6957;
+    }
+
+    /* 特点列表 —— 卡片内嵌列表 */
+    .feature-list {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2.2rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6e3da;
+      margin-bottom: 2rem;
+    }
+
+    .feature-list h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #49443c;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid #b8aa96;
+      padding-left: 0.9rem;
+    }
+
+    .feature-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.6rem 0 0.6rem 1.4rem;
+      position: relative;
+      border-bottom: 1px dashed #eae7e0;
+      font-size: 0.98rem;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.3rem;
+      color: #8d7d69;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* 温和结尾 + 双卡片并排场景 */
+    .ending-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .ending-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      flex: 1 1 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e6e3da;
+    }
+
+    .ending-card h4 {
+      font-weight: 450;
+      font-size: 1rem;
+      color: #4a4239;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.03em;
+    }
+
+    .ending-card p {
+      font-size: 0.93rem;
+      color: #4f4a42;
+    }
+
+    .ending-card .soft-link {
+      color: #6b5b4c;
+      text-decoration: none;
+      border-bottom: 1px solid #d6cdbf;
+      transition: border-color 0.15s;
+    }
+
+    .ending-card .soft-link:hover {
+      border-bottom-color: #7a6a55;
+    }
+
+    /* FAQ 摘要 —— 极简折叠感 */
+    .faq-mini {
+      background: #fcfcf9;
+      border-radius: 20px;
+      padding: 1.8rem 2.2rem;
+      border: 1px solid #e2ded5;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 450;
+      font-size: 1rem;
+      color: #3e3932;
+      cursor: default;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #e2ded5;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-mini p {
+      font-size: 0.94rem;
+      margin-top: 0.6rem;
+      color: #4d4740;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dbd7cd;
+      margin: 0.8rem 0 0.6rem;
+    }
+
+    .footer-note {
+      text-align: left;
+      font-size: 0.85rem;
+      color: #7b746a;
+      padding: 1rem 0 0.5rem;
+      border-top: 1px solid #e0dbd1;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 开场短句 -->
+    <div class="opening">
+      <p>整理是一种安静的力量。</p>
+    </div>
+
+    <!-- 承接段落：从资料整理切入 -->
+    <div class="intro-card">
+      <p>
+        一年多前，我开始认真梳理自己收藏夹里那些关于运动、赛事与信息聚合的资源。原本只是随手囤积链接，后来渐渐变成一项有节奏的整理工作：分类、备注、剔除失效条目、标注更新日期。这个过程中，有一个名字反复出现在多个主题之下——<a href="https://index--huatihui.com" class="inline-link">华体会</a>。它并不张扬，但在体育资讯和赛事索引的圈子里，始终保有一席之地。
+      </p>
+      <p>
+        我试着用更系统的眼光去理解它：一个信息节点，既承载着赛事动态的碎片，也连接着不同社群对运动内容的消费习惯。整理笔记越积越厚，华体会的轮廓反而变得清晰起来——它更像是索引本身，而不是被索引的终点。
+      </p>
+    </div>
+
+    <!-- 特点列表：从索引视角提炼 -->
+    <div class="feature-list">
+      <h3>从信息整理中看到的几个特点</h3>
+      <ul>
+        <li><strong>内容覆盖面较广</strong> —— 从主流联赛到小众项目，华体会的信息集合往往能涵盖多个层级，适合需要横向比较的整理者。</li>
+        <li><strong>更新节奏相对稳定</strong> —— 在长期跟踪中注意到，它的内容刷新频率没有大起大落，这对依赖时间轴做资料归档的人来说是一种便利。</li>
+        <li><strong>界面结构偏传统</strong> —— 没有过度复杂的导航，条目归类方式直接，减少了整理时的认知负担。</li>
+        <li><strong>社区反馈的痕迹</strong> —— 部分内容下方能看到讨论或补充，这些互动本身也成为信息溯源的一部分。</li>
+        <li><strong>跨平台可访问</strong> —— 无论是在桌面端还是移动端打开，页面布局都能维持基本的可读性，这在整理截图或做备注时很实用。</li>
+      </ul>
+    </div>
+
+    <!-- 温和结尾 + 场景卡片（双列） -->
+    <div class="ending-section">
+      <div class="ending-card">
+        <h4>日常使用场景</h4>
+        <p>周末浏览赛事资讯时，我习惯先在笔记本上记下关键词，随后到 <a href="https://index--huatihui.com" class="soft-link">华体会</a> 里对照索引。这种“先想后看”的节奏，让信息摄入变得更有条理。</p>
+      </div>
+      <div class="ending-card">
+        <h4>归档习惯</h4>
+        <p>每个月末，我会把本月关注的赛事链接整理成 Markdown 文件，华体会常常是链接列表里的固定成员。整理本身也是一种温习。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <summary>一些整理中反复出现的小问题</summary>
+      <p><strong>Q：华体会的信息来源是否可靠？</strong><br>
+      A：作为索引型站点，它通常会标注引用或跳转来源。整理时建议交叉比对原始出处，这是索引工作的基本习惯。</p>
+      <hr>
+      <p><strong>Q：适合完全不懂体育的人使用吗？</strong><br>
+      A：如果你只是想了解某类赛事的基础信息或赛程，它的结构对新手比较友好。不过更深的专业分析可能需要搭配其他垂直资源。</p>
+    </div>
+
+    <!-- 句末再嵌入一次链接 + 结束语 -->
+    <p style="margin-bottom: 1.8rem; font-size: 0.96rem; color: #5b554c;">
+      这份整理笔记还会继续更新。如果你也在做类似的信息梳理，不妨把 <a href="https://index--huatihui.com" style="color: #6b5b4c; border-bottom: 1px solid #cfc8bc; text-decoration: none;">华体会</a> 放进你的资料夹里，看看它是否能融入你的索引体系。
+    </p>
+
+    <div class="footer-note">
+      基于个人整理经验 · 版本 2025.04
+    </div>
+  </div>
+</body>
+</html>
